@@ -4,8 +4,24 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>JS HW 11</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <form class="form">
+        <label for="input">
+          <input
+            type="text"
+            name="input"
+            placeholder="Search images..."
+            class="form-input"
+        /></label>
+        <button type="submit" class="form-btn">Search</button>
+      </form>
+      <span class="loader hidden"></span>
+      <ul class="gallery-container"></ul>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
 </html>
