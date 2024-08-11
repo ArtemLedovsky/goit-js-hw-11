@@ -1,0 +1,12 @@
+import{S as h,i as n}from"./assets/vendor-8c59ed88.js";(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const a of t.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&s(a)}).observe(document,{childList:!0,subtree:!0});function i(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function s(e){if(e.ep)return;e.ep=!0;const t=i(e);fetch(e.href,t)}})();const l=document.querySelector(".gallery-container"),p=new h(".gallery-container a",{captions:!0,captionsData:"alt",captionDelay:250});function m(r){const o=r.map(({webformatURL:i,largeImageURL:s,tags:e,likes:t,views:a,comments:d,downloads:f})=>`
+        <li class="gallery-item">
+        <a href="${s}">
+          <img src="${i}" alt="${e}" />
+          <div class="statictics">
+            <div class = "statictics-text"><h3>Likes</h3><p> ${t}</p></div>
+            <div class = "statictics-text"><h3>Views</h3><p>${a}</p></div>
+            <div class = "statictics-text"><h3>Comments</h3><p>${d}</p></div>
+            <div class = "statictics-text"><h3>Downloads</h3><p>${f}</p></div>
+          </div>
+        </a></li>`).join("");u(),l.insertAdjacentHTML("beforeend",o),p.refresh()}function c(){const r="";l.innerHTML=r}function u(){document.querySelector(".loader").classList.toggle("hidden")}function g(r){const o="https://pixabay.com/api/",i="45377125-53da1a565bd8b37af868a9bcd";return u(),fetch(`${o}?key=${i}&q=${r}&image_type=photo&orientation=horizontal&safesearch=true`).then(s=>{if(!s.ok)throw new Error(s.status);return s.json()}).catch(s=>{iziToast.error({position:"topRight",message:`${s}`})})}const y=document.querySelector(".form"),v=document.querySelector(".form-input");y.addEventListener("submit",L);function L(r){r.preventDefault();const o=r.currentTarget.input.value.trim();if(o==="")return n.error({message:"Please enter your search query.",position:"topRight"}),c();g(o).then(i=>{i.hits.length===0&&n.error({message:"Sorry, there are no images matching your search query. Please try again!",position:"topRight"}),c(),m(i.hits)}).catch(i=>{n.error({title:"Error",message:i.message})}).finally(()=>{v.value=""})}
+//# sourceMappingURL=commonHelpers.js.map
