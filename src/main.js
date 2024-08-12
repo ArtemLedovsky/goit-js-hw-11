@@ -4,7 +4,6 @@ import "izitoast/dist/css/iziToast.min.css";
 import { searchImagesProcess } from "./js/pixabay-api.js";
 import { createGallery, clearGallery, showLoader, hideLoader } from "./js/render-functions.js";
 const form = document.querySelector('.form');
-
 form.addEventListener('submit', handleSearchImages)
 
 function handleSearchImages(event) {
@@ -18,7 +17,7 @@ function handleSearchImages(event) {
             'Please enter your search query.',
           position: 'topRight',
     });
-    return 
+    return hideLoader()
     } 
   
   searchImagesProcess(inputQuery)
